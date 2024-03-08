@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speaker Recognition</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"></head>
+<body>
+    <div class="container">
+        
+
+        <form action="/save_audio" method="post" enctype="multipart/form-data">
+            <label for="file1">File 1:</label>
+            <input type="file" name="file1" accept=".wav" required>
+            
+            <label for="file2">File 2:</label>
+            <input type="file" name="file2" accept=".wav" required>
+            
+            <input type="submit" value="Verify">
+        </form><br>
+
+        {% if result %}
+        <div>
+            <h3>Verification Result:</h3>
+            <p>{{ result }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
